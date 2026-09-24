@@ -2,18 +2,18 @@
 
 MemoryPool::MemoryPool(size_t blockSize, size_t blockCount)
 {
-    blockSize_ = blockSize;
-    blockCount_ = blockCount;
+    blockS = blockSize;
+    blockC = blockCount;
 
-    memory = new unsigned char[blockSize_ * blockCount_];
+    memory = new unsigned char[blockS * blockC];
 
-    allocated = new bool[blockCount_];
+    allocated = new bool[blockC];
 
-    for (size_t i = 0; i < blockCount_; i++)
+    for (size_t i = 0; i < blockC; i++)
     {
         allocated[i] = false;
 
-        void* block = memory + i * blockSize_;
+        void* block = memory + i * blockS;
 
         freeStack.push(block);
     }
@@ -38,7 +38,7 @@ void* MemoryPool::allocate()
         static_cast<unsigned char*>(block);
 
     size_t index =
-        (address - memory) / blockSize_;
+        (address - memory) / blockS;
 
     allocated[index] = true;
 
@@ -56,15 +56,15 @@ bool MemoryPool::deallocate(void* ptr)
         static_cast<unsigned char*>(ptr);
 
     if (address < memory ||
-        address >= memory + blockSize_ * blockCount_)
+        address >= memory + blockS * blockC)
     {
         return false;
     }
 
     size_t index =
-        (address - memory) / blockSize_;
+        (address - memory) / blockS;
 
-    if ((address - memory) % blockSize_ != 0)
+    if ((address - memory) % blockS != 0)
     {
         return false;
     }
@@ -88,15 +88,15 @@ size_t MemoryPool::availableBlocks() const
 
 size_t MemoryPool::allocatedBlocks() const
 {
-    return blockCount_ - freeStack.size();
+    return blockC - freeStack.size();
 }
 
 size_t MemoryPool::blockSize() const
 {
-    return blockSize_;
+    return blockS;
 }
 
 size_t MemoryPool::capacity() const
 {
-    return blockSize_ * blockCount_;
+    return blockS * blockC;
 }
