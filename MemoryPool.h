@@ -1,5 +1,10 @@
+#include <cstddef>
+#include "Stack.h"
+
 class MemoryPool
 {
+Private:
+
 public:
     MemoryPool(size_t blockSize, size_t blockCount);
     ~MemoryPool();
