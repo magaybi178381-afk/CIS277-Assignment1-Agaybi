@@ -1,14 +1,17 @@
+#ifndef STACK_H
+#define STACK_H
+
 #include <cstddef>
 
 template <typename T>
 class Stack
-{   
-Private:
+{
+private:
     T* data;
     size_t capacity;
     size_t count;
-    
-Public:
+
+public:
     Stack()
     {
         data = nullptr;
@@ -23,20 +26,21 @@ Public:
 
     void push(const T& value)
     {
-        if(count ==  capacity)
+        if (count == capacity)
         {
-            size_t newCap = capacity + 1;
-            T* newData = new T[newCap];
+            size_t newCapacity = capacity + 1;
 
-            for(size_t = 0; i <count; i++)
+            T* newData = new T[newCapacity];
+
+            for (size_t i = 0; i < count; i++)
             {
                 newData[i] = data[i];
             }
-            
-            delete[] data;
-            data = newData;
-            capacity = newCap;
 
+            delete[] data;
+
+            data = newData;
+            capacity = newCapacity;
         }
 
         data[count] = value;
@@ -48,10 +52,10 @@ Public:
         count--;
         return data[count];
     }
-    
+
     T& top()
     {
-        data[count-1];
+        return data[count - 1];
     }
 
     bool empty() const
@@ -64,3 +68,5 @@ Public:
         return count;
     }
 };
+
+#endif
