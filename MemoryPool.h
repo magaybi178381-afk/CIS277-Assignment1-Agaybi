@@ -4,7 +4,14 @@
 class MemoryPool
 {
 Private:
+    size_t blockS;
+    size_t blockC;
 
+    unsigned char* memory;
+
+    Stack<void*> freeStack;
+
+    bool* allocated;
 public:
     MemoryPool(size_t blockSize, size_t blockCount);
     ~MemoryPool();
