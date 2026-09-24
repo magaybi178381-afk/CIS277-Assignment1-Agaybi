@@ -1,17 +1,21 @@
+#ifndef MEMORYPOOL_H
+#define MEMORYPOOL_H
+
 #include <cstddef>
 #include "Stack.h"
 
 class MemoryPool
 {
-Private:
-    size_t blockS;
-    size_t blockC;
+private:
+    size_t blockSize_;
+    size_t blockCount_;
 
     unsigned char* memory;
 
     Stack<void*> freeStack;
 
     bool* allocated;
+
 public:
     MemoryPool(size_t blockSize, size_t blockCount);
     ~MemoryPool();
@@ -24,3 +28,5 @@ public:
     size_t blockSize() const;
     size_t capacity() const;
 };
+
+#endif
