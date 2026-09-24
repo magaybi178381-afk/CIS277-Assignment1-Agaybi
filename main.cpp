@@ -1,3 +1,6 @@
+#include <iostream>
+#include <cstring>
+
 #include "MemoryPool.h"
 
 int main()
