@@ -7,8 +7,8 @@
 class MemoryPool
 {
 private:
-    size_t blockSize_;
-    size_t blockCount_;
+    size_t blockS;
+    size_t blockC;
 
     unsigned char* memory;
 
