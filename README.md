@@ -1,11 +1,11 @@
 
 #**CIS-277 Assignment 1: Network Packet Buffer Pool**
 
-#Student
+**Student**
 
 Marc Agaybi
 
-#Description
+**Description**
 
 This program implements a fixed-size memory pool for network packet buffers.
 
@@ -13,16 +13,16 @@ The memory pool creates a set number of blocks of the same size. Blocks can be a
 
 The program demonstrates allocating blocks, writing binary data, releasing a block, reusing a block, exhausting the pool, and rejecting a double deallocation.
 
-#Stack Implementation
+**Stack Implementation**
 
 Dynamic Array
 
 I selected a dynamic array because it is simple to implement and allows the stack to grow when more elements are added. The stack stores the free memory block pointers used by the memory pool.
 
-#How to Compile
+**How to Compile**
 g++ main.cpp MemoryPool.cpp -o main
 
-#How to Run
+**How to Run**
 ./main
 
 **Analysis Questions**
