@@ -21,9 +21,11 @@ I selected a dynamic array because it is simple to implement and allows the stac
 
 #How to Compile
 g++ main.cpp MemoryPool.cpp -o main
+
 #How to Run
 ./main
-Analysis Questions
+
+**Analysis Questions**
 
 1. Why is a Stack appropriate for managing the free blocks in this memory pool?
 
